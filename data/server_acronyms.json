@@ -1,0 +1,16 @@
+{
+  "cards": [
+    {"front": "SMTP", "back": "Simple Mail Transfer Protocol"},
+    {"front": "FTP", "back": "File Transfer Protocol"},
+    {"front": "DHCP", "back": "Dynamic Host Configuration Protocol"},
+    {"front": "LDAP", "back": "Lightweight Directory Access Protocol"},
+    {"front": "NTP", "back": "Network Time Protocol"},
+    {"front": "SNMP", "back": "Simple Network Management Protocol"},
+    {"front": "NAT", "back": "Network Address Translation"},
+    {"front": "VLAN", "back": "Virtual Local Area Network"},
+    {"front": "RAID", "back": "Redundant Array of Independent Disks"},
+    {"front": "SAN", "back": "Storage Area Network"},
+    {"front": "NFS", "back": "Network File System"},
+    {"front": "TTL", "back": "Time To Live"}
+  ]
+}

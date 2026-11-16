@@ -248,6 +248,7 @@ class SessionStats:
     total: int = 0
     correct: int = 0
     missed: list[Flashcard] = field(default_factory=list)
+    answers: list[tuple[Flashcard, bool]] = field(default_factory=list)
 
     @property
     def incorrect(self) -> int:
@@ -264,6 +265,7 @@ class SessionStats:
     def record(self, card: Flashcard, correct: bool) -> None:
         """Add one answer to the score."""
         self.total += 1
+        self.answers.append((card, correct))
         if correct:
             self.correct += 1
         elif card not in self.missed:

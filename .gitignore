@@ -21,4 +21,4 @@ htmlcov/
 Thumbs.db
 
 # Logs
-*.log
+*.log.flashcard_history.json
