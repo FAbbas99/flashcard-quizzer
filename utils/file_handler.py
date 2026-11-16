@@ -112,9 +112,7 @@ def _read_deck_text(deck_path: Path) -> str:
     try:
         return deck_path.read_text(encoding="utf-8")
     except UnicodeDecodeError as exc:
-        raise FlashcardLoadError(
-            f"'{deck_path}' is not a UTF-8 text file."
-        ) from exc
+        raise FlashcardLoadError(f"'{deck_path}' is not a UTF-8 text file.") from exc
     except OSError as exc:
         raise FlashcardLoadError(
             f"Could not read '{deck_path}': {exc.strerror}."
@@ -132,7 +130,7 @@ def _extract_card_list(data: Any, deck_path: Path) -> list[Any]:
         data = data["cards"]
         if not isinstance(data, list):
             raise FlashcardLoadError(
-                f'The "cards" key in \'{deck_path}\' must be an array of cards, '
+                f"The \"cards\" key in '{deck_path}' must be an array of cards, "
                 f"not {_with_article(json_type_name(data))}."
             )
 
@@ -166,12 +164,12 @@ def _parse_card(item: Any, index: int, deck_path: Path) -> Flashcard:
     for field in REQUIRED_FIELDS:
         if field not in item:
             raise FlashcardLoadError(
-                f'Card {index} in \'{deck_path}\' is missing the "{field}" field.'
+                f"Card {index} in '{deck_path}' is missing the \"{field}\" field."
             )
         value = item[field]
         if not isinstance(value, str) or not value.strip():
             raise FlashcardLoadError(
-                f'Card {index} in \'{deck_path}\' has an empty or non-text '
+                f"Card {index} in '{deck_path}' has an empty or non-text "
                 f'"{field}" field.'
             )
         values[field] = value.strip()
